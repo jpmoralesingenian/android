@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <EditTextPreference 
+        android:key="pref_redmine_user"
+        android:title="@string/pref_redmine_user"
+        android:summary="@string/pref_summary_redmine_user"
+        android:persistent="true"
+    />
+    <EditTextPreference 
+        android:key="pref_redmine_password"
+        android:title="@string/pref_redmine_password"
+        android:summary="@string/pref_summary_redmine_password"
+        android:persistent="true"
+        android:inputType="textPassword"       
+    />
+     <EditTextPreference 
+        android:key="pref_redmine_url"
+        android:title="@string/pref_redmine_url"
+        android:summary="@string/pref_summary_redmine_url"
+        android:defaultValue="@string/pref_value_redmine_url"
+        android:persistent="true"
+    />
+</PreferenceScreen>

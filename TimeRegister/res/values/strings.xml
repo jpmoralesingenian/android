@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">TimeRegister</string>
+    <string name="date">Cambiar Fecha</string>
+    <string name="afternoon">Tarde</string>
+    <string name="send">Enviar</string>
+    <string name="reload">Recargar</string>
+    <string name="morning">Mañana</string>
+	<string name="reload_start">Cargando proyectos</string>
+	<string name="reload_canceled">Carga de proyectos requiere datos de acceso.</string>
+	<string name="reload_fail">Carga de proyectos falló. Revise datos de acceso.</string>
+	<string name="reload_end">Proyectos cargados</string>
+	<string name="pref_redmine_user">Usuario Redmine</string>
+	<string name="pref_summary_redmine_user">Escriba el usuario de Redmine (normalmente es el login de correo pero puede ser diferente)</string>
+	<string name="pref_redmine_password">Password Redmine</string>
+	<string name="pref_summary_redmine_password">Escriba el password de Redmine</string>
+	<string name="pref_redmine_url">URL Redmine</string>
+	<string name="pref_summary_redmine_url">Escriba la ubicación de redmine, debe empezar por HTTP y terminar con /. No incluya el nombre de ningún método</string>	
+	<string name="pref_value_redmine_url">http://pqrs.ingenian.com/redmine/</string>
+	<string name="settings">Configuración</string>
+	<string name="commit_start">Guardando tiempos</string>
+	<string name="commit_fail">No es posible guardar en este momento</string>
+	<string name="commit_end">Guardado exitoso.</string>
+</resources>
