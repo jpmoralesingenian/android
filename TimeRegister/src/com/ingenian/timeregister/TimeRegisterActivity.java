@@ -10,7 +10,9 @@ import com.ingenian.timeregister.model.RedmineConfiguration;
 import com.ingenian.timeregister.model.TimeEntry;
 
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.DialogFragment;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -35,7 +37,7 @@ public class TimeRegisterActivity extends Activity {
 		SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
 		RedmineConfiguration redmineConfiguration = RedmineConfiguration.loadFromSettings(sharedPref);
 		if(!redmineConfiguration.isEmpty()) {
-			AsyncTask<Void, Integer, Project[]> x = new ProjectsFromRedmine(this, redmineConfiguration);
+			AsyncTask<Void, Integer, Project[]> x = new ProjectsFromRedmineCurrent(this, redmineConfiguration);
 			x.execute((Void)null);					
 		} else {
 			//Hay que configurarlo
@@ -98,6 +100,24 @@ public class TimeRegisterActivity extends Activity {
 				return date;
 			}
 		});
+		//Ring at 6PM
+		// Get the AlarmManager Service
+				AlarmManager mAlarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+
+				// Create an Intent to broadcast to the AlarmNotificationReceiver
+				Intent mNotificationReceiverIntent = new Intent(this,
+						AlarmNotificationReceiver.class);
+
+				// Create an PendingIntent that holds the NotificationReceiverIntent
+				PendingIntent mNotificationReceiverPendingIntent = PendingIntent.getBroadcast(
+						this, 0, mNotificationReceiverIntent, 0);
+				 Calendar calendar = Calendar.getInstance();
+		           calendar.set(Calendar.HOUR_OF_DAY, 18);
+		       calendar.set(Calendar.MINUTE, 00);
+		       calendar.set(Calendar.SECOND, 00);
+
+		      mAlarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 24*60*60*1000 , mNotificationReceiverPendingIntent);
+
 	}	
 
 	@Override
@@ -121,7 +141,7 @@ public class TimeRegisterActivity extends Activity {
 		case R.id.menu_reload:
 			SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
 			
-			AsyncTask<Void, Integer, Project[]> x = new ProjectsFromRedmine(this, RedmineConfiguration.loadFromSettings(sharedPref));
+			AsyncTask<Void, Integer, Project[]> x = new ProjectsFromRedmineCurrent(this, RedmineConfiguration.loadFromSettings(sharedPref));
 			x.execute((Void)null);	
 			return true;
 		}

@@ -22,4 +22,7 @@
 	<string name="commit_start">Guardando tiempos</string>
 	<string name="commit_fail">No es posible guardar en este momento</string>
 	<string name="commit_end">Guardado exitoso.</string>
+	<string name="notification_ticker">Registro de tiempo</string>
+	<string name="notification_title">Por favor recuerda</string>
+	<string name="notification_description">En que proyectos trabajaste hoy?</string>
 </resources>

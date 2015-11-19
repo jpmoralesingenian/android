@@ -22,18 +22,15 @@ import android.widget.Toast;
 import com.ingenian.timeregister.model.Project;
 import com.ingenian.timeregister.model.RedmineConfiguration;
 /**
- * Asynchronous task to obtain all projects from redmine. 
- * This uses the projects.json request, that gets only the first page of results. 
+ * This gets the list of all projects for the current user. It uses the current
  * @author Juan Pablo Morales
  *
  */
-class ProjectsFromRedmine extends AsyncTask<Void,Integer, Project[] > {		
-	/**
-	 * 
-	 */
+class ProjectsFromRedmineCurrent extends AsyncTask<Void,Integer, Project[] > {		
+	
 	private final TimeRegisterActivity timeRegisterActivity;
 	private RedmineConfiguration redmineConfiguration;
-	public ProjectsFromRedmine(TimeRegisterActivity timeRegisterActivity, RedmineConfiguration redmineConfiguration) {
+	public ProjectsFromRedmineCurrent(TimeRegisterActivity timeRegisterActivity, RedmineConfiguration redmineConfiguration) {
 		this.timeRegisterActivity = timeRegisterActivity;
 		this.redmineConfiguration = redmineConfiguration;
 	}
@@ -46,7 +43,7 @@ class ProjectsFromRedmine extends AsyncTask<Void,Integer, Project[] > {
 	 * The following piece of code does this invoking projects.
 	 */
 	
-		String url = redmineConfiguration.getUrl() + "projects.json";
+		String url = redmineConfiguration.getUrl() + "users/current.json?include=memberships";
 		//String apiKey = "eca019664f9d3e107521d6295b1ef05a039b7a69";
         DefaultHttpClient httpClient = new DefaultHttpClient();            
         HttpResponse httpResponse = null;
@@ -90,18 +87,16 @@ class ProjectsFromRedmine extends AsyncTask<Void,Integer, Project[] > {
 	private ArrayList<Project> parseProjects(String responseStr) throws JSONException {
 		ArrayList<Project> projects = new ArrayList<Project>();
 		JSONObject reader = new JSONObject(responseStr);
-		JSONArray jsonProjects = reader.getJSONArray("projects");
-		for(int i = 0;i < jsonProjects.length();i++) {
-			JSONObject jsonProject = jsonProjects.getJSONObject(i);
-			if(jsonProject==null) {
+		JSONObject user = reader.getJSONObject("user");
+		JSONArray jsonMemberships = user.getJSONArray("memberships");
+		for(int i = 0;i < jsonMemberships.length();i++) {
+			JSONObject jsonMembership = jsonMemberships.getJSONObject(i);
+			if(jsonMembership==null) {
 				continue; 
 			}
+			JSONObject jsonProject = jsonMembership.getJSONObject("project");
 			Project project = new Project();
 			project.setId(jsonProject.getInt("id"));
-			/*
-			project.setIdentifier(jsonProject.getString("identifier"));
-			project.setDescription(jsonProject.getString("description"));
-			*/
 			project.setName(jsonProject.getString("name"));
 			projects.add(project);
 		}
