@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  
+    <string name="app_name">Encuesta</string>
+    <string name="cannot">Cannot</string>
+    <string name="album_name">Resto_Picture</string>
+    <string name="picture">Picture</string>
+    <string name="title_activity_large_view">DailySelfie View Picture</string>
+    <string name="msg_nothing">Nothing to see here!</string>
+    <string name="title_activity_rate">Calificar</string>
+    <string name="rate_help">Cuéntanos como te pareció el servicio</string>
+	<string name="rate">Calificar!</string>
+	<string name="rate_comments">Si tienes algún comentario escríbelo aquí</string>
+	<string name="rate_email">Si deseas que te contactemos con promociones escribe tu correo electrónico a continuación</string>
+	<string name="meseros_load">Cargando lista de meseros</string>
+	<string name="meseros_done">Lista de meseros cargada</string>
+	<string name="meseros_error">Lista de meseros no fue cargada</string>	
+	<string name="encuesta_load">Enviando encuesta</string>
+	<string name="encuesta_done">Encuesta enviada</string>
+	<string name="encuesta_error">Encuesta no enviada</string>	
+	<string name="pref_resto_url">URL resto</string>
+	<string name="pref_summary_resto_url">Escriba la ubicación del servidor, debe empezar por HTTP y terminar con /. No incluya el nombre de ningún método</string>	
+	<string name="pref_value_resto_url">http://localhost:3000/</string>
+	<string name="settings">Configuración</string>
+	
+</resources>

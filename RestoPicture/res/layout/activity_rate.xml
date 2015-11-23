@@ -1,0 +1,32 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}" 
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rate_help" />
+    
+	<RatingBar android:id="@+id/rate_rating_bar" android:numStars="5" android:stepSize="1" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+	<TextView
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="@string/rate_comments" />
+	<EditText android:id="@+id/rate_comments" android:layout_width="wrap_content"
+	    android:layout_height="wrap_content" android:lines="3" android:inputType="textMultiLine"/>
+	 <TextView
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="@string/rate_email" />
+	 <EditText android:id="@+id/rate_email" android:layout_width="wrap_content"
+	    android:layout_height="wrap_content" android:lines="1" android:inputType="textEmailAddress"/>
+	 
+	<Button android:id="@+id/rate_button" android:text="@string/rate" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+	    
+</LinearLayout>

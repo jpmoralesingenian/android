@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >   
+     <EditTextPreference 
+        android:key="pref_redmine_url"
+        android:title="@string/pref_resto_url"
+        android:summary="@string/pref_summary_resto_url"
+        android:defaultValue="@string/pref_value_resto_url"
+        android:persistent="true"
+    />
+</PreferenceScreen>
