@@ -54,7 +54,7 @@ public class AlarmNotificationReceiver extends BroadcastReceiver {
 
 		// Pass the Notification to the NotificationManager:
 		mNotificationManager.notify(MY_NOTIFICATION_ID,
-				notificationBuilder.build());
+				notificationBuilder.getNotification());
 
 		// Log occurence of notify() call
 		Log.i(TAG, "Sending notification at:"
