@@ -94,8 +94,8 @@ public class MeserosWebTask extends AsyncTask<Void,Integer, ArrayList<Mesero> > 
 			Mesero mesero = new Mesero();
 			mesero.setId(meseroJSON.getString("_id"));
 			mesero.setName(meseroJSON.getString("name"));
-			if(homero==null) homero = BitmapFactory.decodeResource(mParent.get().getResources(), R.drawable.simpson_homer);
-			mesero.setBitmap(homero);
+			ImageLoader imageLoader = ImageLoader.getInstance();
+			mesero.setBitmap(imageLoader.loadImageSync(restoConfiguration.getUrl()+"/meseros/"+mesero.getId()+".jpg"));
 			meseros.add(mesero);
 		}
 		return meseros;

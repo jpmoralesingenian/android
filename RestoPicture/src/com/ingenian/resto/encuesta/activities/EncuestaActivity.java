@@ -43,8 +43,6 @@ public class EncuestaActivity extends ListActivity {
 	public static final String TAG = "EncuestaActivity";
 	/** This is the key we use on the intent to store the information on the file name to open the larger picture */
 	public static final String PICTURE_INFO = "Meseros";
-	// The time to wait is two minutes
-	public static final int SECONDS_TO_WAIT=2*60;
 	public static final String CONFIG = "CONFIG";
 	private PictureListAdapter mAdapter;
 	private PhotoStore mPhotoStore;	
@@ -97,6 +95,9 @@ public class EncuestaActivity extends ListActivity {
 		FileLoaderTask fileLoaderTask = new FileLoaderTask(EncuestaActivity.this,mPhotoStore,80,60);
 		fileLoaderTask.execute(mPhotoStore.getPictureNames());
 		*/		
+	        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(this).build();
+		ImageLoader.getInstance().init(config);
+
 	}
 	// Some lifecycle callbacks so that the image can survive orientation change
 	@Override
