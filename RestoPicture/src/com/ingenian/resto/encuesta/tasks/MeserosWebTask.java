@@ -23,6 +23,7 @@ import com.ingenian.resto.encuesta.R;
 import com.ingenian.resto.encuesta.activities.EncuestaActivity;
 import com.ingenian.resto.encuesta.model.Mesero;
 import com.ingenian.resto.encuesta.model.RestoConfiguration;
+import com.nostra13.universalimageloader.core.ImageLoader;
 /**
  * This gets the list of all Meseros for the current user. It uses the current
  * @author Juan Pablo Morales

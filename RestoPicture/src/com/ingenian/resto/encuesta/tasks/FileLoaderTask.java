@@ -64,13 +64,6 @@ public class FileLoaderTask extends AsyncTask<String, Void, ArrayList<Mesero>> {
 	protected void onPostExecute(ArrayList<Mesero> result) {
 		for (Mesero pictureInfo : result) {
 			mParent.get().addPictureInfo(pictureInfo);
-		}	
-		if(result.size()==0) {
-			mParent.get().addPictureInfo(new Mesero(BitmapFactory.decodeResource(mParent.get().getResources(), R.drawable.simpson_homer),"Homero"));
-			mParent.get().addPictureInfo(new Mesero(BitmapFactory.decodeResource(mParent.get().getResources(), R.drawable.simpsons_moe),"Moe"));
-			mParent.get().addPictureInfo(new Mesero(BitmapFactory.decodeResource(mParent.get().getResources(), R.drawable.familyguy_horace),"Horace"));
-			mParent.get().addPictureInfo(new Mesero(BitmapFactory.decodeResource(mParent.get().getResources(), R.drawable.futurama_fry),"Philip"));
-			mParent.get().addPictureInfo(new Mesero(BitmapFactory.decodeResource(mParent.get().getResources(), R.drawable.futurama_bender),"Bender"));
-		}
+		}			
 	}
 }

@@ -23,6 +23,8 @@ import com.ingenian.resto.encuesta.model.PictureListAdapter;
 import com.ingenian.resto.encuesta.model.RestoConfiguration;
 import com.ingenian.resto.encuesta.storage.PhotoStore;
 import com.ingenian.resto.encuesta.tasks.MeserosWebTask;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 
 

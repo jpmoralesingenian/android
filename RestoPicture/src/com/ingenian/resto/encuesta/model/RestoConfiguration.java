@@ -30,7 +30,7 @@ public class RestoConfiguration implements Serializable{
 	 * Creates the redmine configuration object from settings
 	 */
 	public static RestoConfiguration loadFromSettings(SharedPreferences sharedPref) {
-		String restoURL = sharedPref.getString("pref_resto_url", "http://192.168.1.102:3000/");
+		String restoURL = sharedPref.getString("pref_resto_url", "http://joshuacafebar.herokuapp.com/");
 		return new RestoConfiguration(restoURL);
 	}
 }
